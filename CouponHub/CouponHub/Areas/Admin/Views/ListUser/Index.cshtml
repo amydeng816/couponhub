@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BussinessObjectsLayer.User_Table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+
+<table class="table table-striped table-hover ">
+    <tr class="danger">
+        <th>
+            @Html.ActionLink("UserEmail", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc")), SortBy = "UserEmail" })
+        </th>
+        <th>
+            @Html.ActionLink("Role", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc")), SortBy = "Role" })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="warning">
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+        </tr>
+    }
+
+</table>
+@{
+    double TotalPage = @ViewBag.TotalPages;
+}
+<ul class="pagination">
+    @for (int i = 1; i <= TotalPage; i++)
+    {
+        if (i == ViewBag.Page)
+        {
+            <li class="active">
+                @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder)), SortBy = (ViewBag.SortBy = (ViewBag.SortBy == null ? "UserEmail" : ViewBag.SortBy)), Page = i })
+            </li>
+        }
+        else
+        {
+            <li>
+                @Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder = (ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder)), SortBy = (ViewBag.SortBy = (ViewBag.SortBy == null ? "UserEmail" : ViewBag.SortBy)), Page = i })
+            </li>
+        }
+    }
+</ul>

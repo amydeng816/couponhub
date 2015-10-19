@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CouponHubDBModelStoreContainer" CdmEntityContainer="CouponHubDBEntities">
+    <EntitySetMapping Name="Category_Table">
+      <EntityTypeMapping TypeName="CouponHubDBModel.Category_Table">
+        <MappingFragment StoreEntitySet="Category_Table">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Url_Table">
+      <EntityTypeMapping TypeName="CouponHubDBModel.Url_Table">
+        <MappingFragment StoreEntitySet="Url_Table">
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+          <ScalarProperty Name="UrlTitle" ColumnName="UrlTitle" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="UrlDesc" ColumnName="UrlDesc" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Coupon" ColumnName="Coupon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Table">
+      <EntityTypeMapping TypeName="CouponHubDBModel.User_Table">
+        <MappingFragment StoreEntitySet="User_Table">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

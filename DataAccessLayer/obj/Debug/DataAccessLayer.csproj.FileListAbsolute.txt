@@ -1,0 +1,9 @@
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\BussinessObjectsLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\BussinessObjectsLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

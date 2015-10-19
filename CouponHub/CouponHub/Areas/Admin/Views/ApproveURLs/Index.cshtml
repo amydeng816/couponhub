@@ -1,0 +1,133 @@
+﻿@model IEnumerable<BussinessObjectsLayer.Url_Table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        BindSelectAll();
+        $(document).ajaxStart(function () {
+            $("#loading").show();
+        });
+
+        $(document).ajaxStop(function () {
+            $("#loading").hide();
+        });
+
+        $("#Approve").click(function () {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id; });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll", "ApproveURLs")",
+                traditional: true,
+                data: { Ids: checkedIds.toArray(), Status: "A", CurrentStatus: "@ViewBag.Status" },
+                success: successFunc,
+                error: errorFunc
+            });
+
+            function successFunc(data, status) {
+                $("#Data").html(data);
+                BindSelectAll();
+            }
+
+            function errorFunc() {
+                alert('error');
+            }
+
+        });
+
+        $("#Reject").click(function () {
+            checkedIds = $(".ckb").filter(":checked").map(function () { return this.id; });
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("ApproveOrRejectAll", "ApproveURLs")",
+            traditional: true,
+            data: { Ids: checkedIds.toArray(), Status: "R", CurrentStatus: "@ViewBag.Status" },
+            success: successFunc,
+            error: errorFunc
+        });
+
+        function successFunc(data, status) {
+            $("#Data").html(data);
+            BindSelectAll();
+        }
+
+        function errorFunc() {
+            alert('error');
+        }
+
+    });
+    });
+
+    function BindSelectAll() {
+        $("#selectall").click(function (event) {
+            if (this.checked) {
+                $('.ckb').each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $('.ckb').each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+    }
+
+    function ConfirmApprove() {
+        return confirm('Are you sure you want to approve this coupon?')
+    }
+    function ConfirmReject() {
+        return confirm('Are you sure you want to reject this coupon?')
+    }
+</script>
+
+<h2>Manage Coupons</h2>
+
+<div id="loading" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Loading...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width:100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-pills">
+    @if (ViewBag.Status == "P")
+    {
+        <li class="active">@Html.ActionLink("Pending Coupons", "Index", new {  Status = "P" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Pending Coupons", "Index", new { Status = "P" })</li>
+    }
+    @if (ViewBag.Status == "A")
+    {
+        <li class="active">@Html.ActionLink("Approved Coupons", "Index", new {  Status = "A" })</li>
+    }
+    else
+    {
+         <li>@Html.ActionLink("Approved Coupons", "Index", new {  Status = "A" })</li>
+    }
+    @if (ViewBag.Status == "R")
+    {
+        <li class="active">@Html.ActionLink("Rejected Coupons", "Index", new {  Status = "R" })</li>
+    }
+    else
+    {
+        <li>@Html.ActionLink("Rejected Coupons", "Index", new {  Status = "R" })</li>
+    }
+</ul>
+<div id="Data">
+    @Html.Partial("pv_ApproveURLs", Model)
+</div>
+<input type="button" id="Approve" value="Approve" class="btn btn-primary" />
+&nbsp;<input type="button" id="Reject" value="Reject" class="btn btn-primary" />

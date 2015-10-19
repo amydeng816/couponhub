@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\BussinessObjectsLayer.dll.config
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\BussinessObjectsLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\BussinessObjectsLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\obj\Debug\BussinessObjectsLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\obj\Debug\BussinessObjectsLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\BussinessObjectsLayer\obj\Debug\BussinessObjectsLayer.csprojResolveAssemblyReference.cache

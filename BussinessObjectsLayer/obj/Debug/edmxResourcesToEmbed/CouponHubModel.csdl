@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CouponHubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category_Table">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Url_Table" Relationship="Self.FK_Url_Table_Category_Table" FromRole="Category_Table" ToRole="Url_Table" />
+  </EntityType>
+  <EntityType Name="Url_Table">
+    <Key>
+      <PropertyRef Name="UrlId" />
+    </Key>
+    <Property Name="UrlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UrlTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UrlDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="IsApproved" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Coupon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category_Table" Relationship="Self.FK_Url_Table_Category_Table" FromRole="Url_Table" ToRole="Category_Table" />
+    <NavigationProperty Name="User_Table" Relationship="Self.FK_Url_Table_User_Table" FromRole="Url_Table" ToRole="User_Table" />
+  </EntityType>
+  <EntityType Name="User_Table">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Url_Table" Relationship="Self.FK_Url_Table_User_Table" FromRole="User_Table" ToRole="Url_Table" />
+  </EntityType>
+  <Association Name="FK_Url_Table_Category_Table">
+    <End Role="Category_Table" Type="Self.Category_Table" Multiplicity="0..1" />
+    <End Role="Url_Table" Type="Self.Url_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category_Table">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Url_Table">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Url_Table_User_Table">
+    <End Role="User_Table" Type="Self.User_Table" Multiplicity="0..1" />
+    <End Role="Url_Table" Type="Self.Url_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Table">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Url_Table">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CouponHubDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category_Table" EntityType="Self.Category_Table" />
+    <EntitySet Name="Url_Table" EntityType="Self.Url_Table" />
+    <EntitySet Name="User_Table" EntityType="Self.User_Table" />
+    <AssociationSet Name="FK_Url_Table_Category_Table" Association="Self.FK_Url_Table_Category_Table">
+      <End Role="Category_Table" EntitySet="Category_Table" />
+      <End Role="Url_Table" EntitySet="Url_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Url_Table_User_Table" Association="Self.FK_Url_Table_User_Table">
+      <End Role="User_Table" EntitySet="User_Table" />
+      <End Role="Url_Table" EntitySet="Url_Table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

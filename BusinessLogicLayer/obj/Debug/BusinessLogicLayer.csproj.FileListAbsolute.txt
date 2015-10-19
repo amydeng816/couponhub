@@ -1,0 +1,11 @@
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\BussinessObjectsLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\BussinessObjectsLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\user\Desktop\asp.net-ef\project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BussinessObjectsLayer.Url_Table>
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        @TempData["Msg"].ToString()
+    </div>
+}
+
+<table class="table table-responsive table-bordered table-striped table-hover">
+    <tr class="danger">
+        <th>@Html.CheckBox("selectall")</th>
+        <th>
+            @Html.DisplayName("Title")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.UrlDesc)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.IsApproved)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Coupon)
+        </th>
+        <th>
+            @Html.DisplayName("Category Name")
+        </th>
+        <th>
+            @Html.DisplayName("User")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="warning">
+            <td>
+                @Html.CheckBox(item.UrlId.ToString(), false, new { @class = "ckb", Id = item.UrlId })
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UrlDesc)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.IsApproved)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Coupon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category_Table.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Table.UserEmail)
+            </td>
+        </tr>
+    }
+</table>
